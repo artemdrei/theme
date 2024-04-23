@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-function App() {
+import { appTheme } from "./theme/theme";
+import { EmailScreen } from "./screens/Email";
+import { OnboardingScreen } from "./screens/Onboarding";
+import { PaymentScreen } from "./screens/Payment";
+
+const theme = createTheme({ appTheme });
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <ThemeProvider theme={theme}>
+      <Container component="main" sx={{ flexDirection: "column" }}>
+        <CssBaseline />
 
-export default App;
+        <EmailScreen />
+        <OnboardingScreen />
+        <PaymentScreen />
+      </Container>
+    </ThemeProvider>
+  );
+};
