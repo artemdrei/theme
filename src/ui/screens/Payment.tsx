@@ -1,9 +1,9 @@
 import React from "react";
 import { styled, useTheme } from "@mui/material";
 
-import { ButtonSuccess } from "../ui/Button";
-import { Typography } from "../ui/Typography";
-import { Divider } from "../ui/Divider";
+import { ButtonSuccess } from "../components/Button";
+import { Typography } from "../components/Typography";
+import { Divider } from "../components/Divider";
 
 interface Props {}
 
@@ -13,7 +13,6 @@ const SRoot = styled("div")`
 `;
 
 const Container = styled("div")`
-  width: 600px;
   height: 100%;
   margin: 0 auto;
   padding: 32px;

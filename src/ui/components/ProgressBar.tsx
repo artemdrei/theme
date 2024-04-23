@@ -5,7 +5,7 @@ const ProgressBarStyled = styled(LinearProgress)`
   height: 6px;
   border-radius: 6px;
   background-color: ${({ theme }) =>
-    theme.appTheme.component.progressBarBackground};
+    theme.appTheme.components.progressBarBackground};
 `;
 
 export const ProgressBar: React.FC<LinearProgressProps> = (props) => {

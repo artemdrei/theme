@@ -12,22 +12,22 @@ const InputStyled = styled("input")<InputProps>`
   padding: 10px;
   border-radius: 4px;
   border-radius: 20px;
-  font-size: ${({ theme }) => theme.appTheme.typography.select.fontSize};
-  font-weight: ${({ theme }) => theme.appTheme.typography.select.fontWeight};
-  border: 1px solid ${({ theme }) => theme.appTheme.component.inputBorderColor};
-  background: ${({ theme }) => theme.appTheme.component.inputBackground};
+  font-size: ${({ theme }) => theme.appTheme.components.inputFontSize};
+  font-weight: ${({ theme }) => theme.appTheme.components.inputFontWeight};
+  border: 1px solid ${({ theme }) => theme.appTheme.components.inputBorderColor};
+  background: ${({ theme }) => theme.appTheme.components.inputBackground};
 
   &:focus {
     border: 1px solid
-      ${({ theme }) => theme.appTheme.component.inputBorderColorActive};
+      ${({ theme }) => theme.appTheme.components.inputBorderColorActive};
     outline: none;
   }
 
   &:disabled {
     border: 1px solid
-      ${({ theme }) => theme.appTheme.component.inputBorderColorDisabled};
+      ${({ theme }) => theme.appTheme.components.inputBorderColorDisabled};
     background-color: ${({ theme }) =>
-      theme.appTheme.component.inputBackgroundDisabled};
+      theme.appTheme.components.inputBackgroundDisabled};
   }
 `;
 

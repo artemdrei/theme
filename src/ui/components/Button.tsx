@@ -9,6 +9,8 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
+// Don't copy and past this button code to your project
+// This is naive implementation only for researching purpose
 const ButtonStyled = styled("button")<ButtonProps>`
   display: block;
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
@@ -16,27 +18,28 @@ const ButtonStyled = styled("button")<ButtonProps>`
   border: none;
   border-radius: 12px;
   background: ${({ theme }) =>
-    theme.appTheme.component.buttonPrimaryBackground};
-  color: ${({ theme }) => theme.appTheme.component.buttonPrimaryTextColor};
-  box-shadow: ${({ theme }) => theme.appTheme.component.buttonPrimaryBoxShadow};
-  font-size: ${({ theme }) => theme.appTheme.typography.button.fontSize};
+    theme.appTheme.components.buttonPrimaryBackground};
+  color: ${({ theme }) => theme.appTheme.components.buttonPrimaryTextColor};
+  box-shadow: ${({ theme }) =>
+    theme.appTheme.components.buttonPrimaryBoxShadow};
+  font-size: ${({ theme }) => theme.appTheme.components.buttonFontSize};
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  font-weight: ${({ theme }) => theme.appTheme.typography.button.fontWeight};
+  font-weight: ${({ theme }) => theme.appTheme.components.buttonFontWeight};
 
   :hover:enabled {
     cursor: pointer;
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonPrimaryBackgroundHover};
+      theme.appTheme.components.buttonPrimaryBackgroundHover};
   }
 
   :active:enabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonPrimaryBackgroundActive};
+      theme.appTheme.components.buttonPrimaryBackgroundActive};
   }
 
   :disabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonPrimaryBackgroundDisabled};
+      theme.appTheme.components.buttonPrimaryBackgroundDisabled};
   }
 `;
 
@@ -47,28 +50,28 @@ const ButtonSecondaryStyled = styled("button")<ButtonProps>`
   border: none;
   border-radius: 8px;
   background: ${({ theme }) =>
-    theme.appTheme.component.buttonSecondaryBackground};
-  color: ${({ theme }) => theme.appTheme.component.buttonSecondaryTextColor};
+    theme.appTheme.components.buttonSecondaryBackground};
+  color: ${({ theme }) => theme.appTheme.components.buttonSecondaryTextColor};
   box-shadow: ${({ theme }) =>
-    theme.appTheme.component.buttonSecondaryBoxShadow};
-  font-size: ${({ theme }) => theme.appTheme.typography.button.fontSize};
+    theme.appTheme.components.buttonSecondaryBoxShadow};
+  font-size: ${({ theme }) => theme.appTheme.components.buttonFontSize};
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  font-weight: ${({ theme }) => theme.appTheme.typography.button.fontWeight};
+  font-weight: ${({ theme }) => theme.appTheme.components.buttonFontWeight};
 
   &:hover:enabled {
     cursor: pointer;
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonSecondaryBackgroundHover};
+      theme.appTheme.components.buttonSecondaryBackgroundHover};
   }
 
   &:active:enabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonSecondaryBackgroundActive};
+      theme.appTheme.components.buttonSecondaryBackgroundActive};
   }
 
   :disabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonPrimaryBackgroundDisabled};
+      theme.appTheme.components.buttonPrimaryBackgroundDisabled};
   }
 `;
 
@@ -79,26 +82,27 @@ const ButtonSuccessStyled = styled("button")<ButtonProps>`
   border: none;
   border-radius: 8px;
   background: ${({ theme }) =>
-    theme.appTheme.component.buttonSuccessBackground};
-  color: ${({ theme }) => theme.appTheme.component.buttonSuccessTextColor};
-  box-shadow: ${({ theme }) => theme.appTheme.component.buttonSuccessBoxShadow};
-  font-size: ${({ theme }) => theme.appTheme.typography.button.fontSize};
-  font-weight: ${({ theme }) => theme.appTheme.typography.button.fontWeight};
+    theme.appTheme.components.buttonSuccessBackground};
+  color: ${({ theme }) => theme.appTheme.components.buttonSuccessTextColor};
+  box-shadow: ${({ theme }) =>
+    theme.appTheme.components.buttonSuccessBoxShadow};
+  font-size: ${({ theme }) => theme.appTheme.components.buttonFontSize};
+  font-weight: ${({ theme }) => theme.appTheme.components.buttonFontWeight};
 
   &:hover:enabled {
     cursor: pointer;
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonSuccessBackgroundHover};
+      theme.appTheme.components.buttonSuccessBackgroundHover};
   }
 
   &:active:enabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonSuccessBackgroundActive};
+      theme.appTheme.components.buttonSuccessBackgroundActive};
   }
 
   :disabled {
     background: ${({ theme }) =>
-      theme.appTheme.component.buttonSuccessBackgroundDisabled};
+      theme.appTheme.components.buttonSuccessBackgroundDisabled};
   }
 `;
 

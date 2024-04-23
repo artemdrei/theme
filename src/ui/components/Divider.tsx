@@ -5,7 +5,7 @@ interface Props {}
 
 const DividerStyled = styled(MuiDivider)`
   background-color: ${({ theme }) =>
-    theme.appTheme.component.dividerBackground};
+    theme.appTheme.components.dividerBackground};
 `;
 
 export const Divider: React.FC<Props> = (props) => {

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Box, styled, useTheme } from "@mui/material";
 
-import imageSrc from "../assets/images/confirm_email.png";
-import { ButtonAccent } from "../ui/Button";
-import { Typography } from "../ui/Typography";
-import { Input } from "../ui/Input";
-import { ProgressBar } from "../ui/ProgressBar";
+import imageSrc from "../../assets/images/confirm_email.png";
+import { ButtonAccent } from "../components/Button";
+import { Typography } from "../components/Typography";
+import { Input } from "../components/Input";
+import { ProgressBar } from "../components/ProgressBar";
 
 interface Props {}
 
@@ -22,7 +22,6 @@ const ImageStyled = styled("img")`
 `;
 
 const Container = styled("div")`
-  width: 600px;
   height: 100%;
   margin: 0 auto;
   padding: 32px;

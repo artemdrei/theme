@@ -4,7 +4,7 @@ import {
   Typography as MuiTypography,
   TypographyProps,
 } from "@mui/material";
-import { getContrastColor } from "../utils/getContrastText";
+import { getContrastColor } from "../../utils/getContrastText";
 
 type Variant =
   | "h1"
@@ -13,13 +13,14 @@ type Variant =
   | "h4"
   | "h5"
   | "h6"
-  | "subtitle1"
-  | "subtitle2"
   | "body1"
   | "body2"
-  | "caption";
+  | "caption"
+  | "subtitle1"
+  | "subtitle2";
 
-type Color = "body" | "accent" | "heading" | "secondary"; // future: accent | error | warring and so on
+// future colors: accent | error | warring and so on. But be careful - don't extend color for each cases (replace specific color on the place)
+type Color = "body" | "accent" | "heading" | "secondary";
 
 interface PropsNew extends TypographyProps {
   color?: Color;
@@ -43,17 +44,17 @@ const TypographyStyled = styled(MuiTypography)<PropsNew>`
     lineHeight,
   }) => {
     const colorsDark: Record<Color, string> = {
-      body: theme.appTheme.component.fontPrimaryColor,
-      accent: theme.appTheme.component.fontAccentColor,
-      heading: theme.appTheme.component.fontPrimaryAccentColor,
-      secondary: theme.appTheme.component.fontSecondaryColor,
+      body: theme.appTheme.components.fontPrimaryColor,
+      accent: theme.appTheme.components.fontAccentColor,
+      heading: theme.appTheme.components.fontPrimaryAccentColor,
+      secondary: theme.appTheme.components.fontSecondaryColor,
     };
 
     const colorsLight: Record<Color, string> = {
-      body: theme.appTheme.component.fontPrimaryColorLight,
-      accent: theme.appTheme.component.fontAccentColorLight,
-      heading: theme.appTheme.component.fontPrimaryAccentColorLight,
-      secondary: theme.appTheme.component.fontSecondaryColorLight,
+      body: theme.appTheme.components.fontPrimaryColorLight,
+      accent: theme.appTheme.components.fontAccentColorLight,
+      heading: theme.appTheme.components.fontPrimaryAccentColorLight,
+      secondary: theme.appTheme.components.fontSecondaryColorLight,
     };
 
     const contrastColor = getContrastColor(background);
@@ -62,16 +63,16 @@ const TypographyStyled = styled(MuiTypography)<PropsNew>`
     return {
       fontSize: fontSize
         ? fontSize
-        : theme.appTheme.typography.heading[variant].fontSize,
+        : theme.appTheme.typography[variant].fontSize,
       fontFamily: fontFamily
         ? fontFamily
-        : theme.appTheme.typography.heading[variant].fontFamily,
+        : theme.appTheme.typography[variant].fontFamily,
       fontWeight: fontWeight
         ? fontWeight
-        : theme.appTheme.typography.heading[variant].fontWeight,
+        : theme.appTheme.typography[variant].fontWeight,
       lineHeight: lineHeight
         ? fontWeight
-        : theme.appTheme.typography.heading[variant].lineHeight,
+        : theme.appTheme.typography[variant].lineHeight,
       color: colorVariant[color],
     };
   }}

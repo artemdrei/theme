@@ -4,25 +4,7 @@ export const appTheme = {
   palette: {
     error: "#F04D4D",
     accent: "#F94E6A",
-    accentSecondary: "#F94E6A",
-    // unused: "transparent",
-    // success: "#349840",
-    // neutral0: "#FFFFFF",
-    // neutral25: "#EEEEEE",
-    // neutral50: "#E2E2E2",
-    // neutral100: "#D0D0D0",
-    // neutral200: "#ABABAB",
-    // neutral300: "#8A8A8A",
-    // neutral400: "#636363",
-    // neutral500: "#505050",
-    // neutral600: "#323232",
-    // neutral700: "#232323",
-    // neutral800: "#1C1C1C",
-    // neutral900: "#121212",
-    // neutralHue: "",
-    // fontPrimary: "#D0D0D0",
-    // neutral1000: "#0A0A0A",
-    // fontSecondary: "#8A8A8A",
+    //...
   },
   app: {
     background: {
@@ -44,8 +26,11 @@ export const appTheme = {
         "linear-gradient(95.17deg, #CF8BF3 -16.49%, #A770EF -15.14%, #FDB99B 115.23%)",
     },
   },
-  component: {
+  components: {
     // Buttons
+    buttonFontSize: "16px",
+    buttonFontWeight: 400,
+
     buttonPrimaryBackground:
       "linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%)",
     buttonPrimaryBackgroundHover:
@@ -73,7 +58,9 @@ export const appTheme = {
     buttonSuccessTextColorDisabled: "#fff",
     buttonSuccessBoxShadow: "",
 
-    // Inputs
+    // Input
+    inputFontSize: "16px",
+    inputFontWeight: 400,
     inputBackground: "#fff",
     inputBackgroundDisabled: "rgba(0,0,0, 0.1)",
     inputBackgroundFocus: "#f1f1f1",
@@ -101,85 +88,75 @@ export const appTheme = {
 
     // Progress Bar
     progressBarBackground: "neutral600",
-    progressCircleBackground: "neutral600",
     progressCircleColor: "accent",
+    progressCircleBackground: "neutral600",
   },
   typography: {
-    button: {
+    h1: {
+      fontSize: "60px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`, // Figure out do we need this, or use one font for all
+    },
+    h2: {
+      fontSize: "50px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    h3: {
+      fontSize: "40px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    h4: {
+      fontSize: "30px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    h5: {
+      fontSize: "20px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    h6: {
+      fontSize: "20px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    subtitle1: {
+      fontSize: "18px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    subtitle2: {
+      fontSize: "16px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    body1: {
       fontSize: "16px",
       fontWeight: 400,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
-    select: {
-      fontSize: "16px",
+    body2: {
+      fontSize: "14px",
       fontWeight: 400,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
-    heading: {
-      h1: {
-        fontSize: "60px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`, // Figure out do we need this, or use one font for all
-      },
-      h2: {
-        fontSize: "50px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      h3: {
-        fontSize: "40px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      h4: {
-        fontSize: "30px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      h5: {
-        fontSize: "20px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      h6: {
-        fontSize: "20px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      subtitle1: {
-        fontSize: "18px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      subtitle2: {
-        fontSize: "16px",
-        fontWeight: 700,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      body1: {
-        fontSize: "16px",
-        fontWeight: 400,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      body2: {
-        fontSize: "14px",
-        fontWeight: 400,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
-      caption: {
-        fontSize: "10px",
-        fontWeight: 400,
-        lineHeight: 1.67,
-        fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-      },
+    caption: {
+      fontSize: "10px",
+      fontWeight: 400,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
   },
 };
