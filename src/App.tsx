@@ -4,9 +4,12 @@ import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
 import { appTheme } from "./assets/theme/theme";
+import { content as defaultContent, Content } from "./assets/content";
 
 import styled from "@emotion/styled";
-import { Funnel } from "./ui/funnel/Funnel";
+import { Funnel } from "./ui/flow/Funnel";
+import { useState } from "react";
+import { Editor } from "./ui/editor/Editor";
 
 const theme = createTheme({ appTheme });
 
@@ -26,6 +29,8 @@ const RightStyled = styled("div")`
 `;
 
 export const App = () => {
+  const [content, setContent] = useState<Content>(defaultContent);
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" sx={{ flexDirection: "column" }}>
@@ -33,14 +38,11 @@ export const App = () => {
 
         <LayoutStyled>
           <LeftStyled>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
-            nemo enim est autem voluptates reiciendis officiis, repudiandae
-            sapiente ipsum voluptate, ut neque harum debitis ullam. Cumque ipsa
-            placeat beatae deserunt!
+            <Editor content={content} setContent={setContent} />
           </LeftStyled>
 
           <RightStyled>
-            <Funnel />
+            <Funnel content={content} />
           </RightStyled>
         </LayoutStyled>
       </Container>
