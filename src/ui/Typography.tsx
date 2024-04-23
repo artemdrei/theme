@@ -4,6 +4,7 @@ import {
   Typography as MuiTypography,
   TypographyProps,
 } from "@mui/material";
+import { getContrastColor } from "../utils/getContrastText";
 
 type Variant =
   | "h1"
@@ -18,71 +19,64 @@ type Variant =
   | "body2"
   | "caption";
 
-interface Props extends TypographyProps {
-  isAccent?: boolean;
-  myVariant?: Variant;
+type Color = "body" | "accent" | "heading" | "secondary"; // future: accent | error | warring and so on
+
+interface PropsNew extends TypographyProps {
+  color?: Color;
+  variant?: Variant;
+  fontSize?: string;
+  fontFamily?: string;
+  fontWeight?: number;
+  lineHeight?: string;
+  background?: string;
 }
 
-const TypographyStyled = styled(MuiTypography)<any>`
-  ${(props) => {
-    const colors = {
-      accent: props.theme.appTheme.component.fontAccentColor,
-      heading: props.theme.appTheme.component.fontPrimaryAccentColor,
-      body: props.theme.appTheme.component.fontPrimaryColor,
-      secondary: props.theme.appTheme.component.fontSecondaryColor,
-      accentLight: props.theme.appTheme.component.fontAccentColorLight,
-      headingLight: props.theme.appTheme.component.fontPrimaryAccentColorLight,
-      bodyLight: props.theme.appTheme.component.fontPrimaryColorLight,
-      secondaryLight: props.theme.appTheme.component.fontSecondaryColorLight,
+const TypographyStyled = styled(MuiTypography)<PropsNew>`
+  ${({
+    theme,
+    color = "body",
+    variant = "body1",
+    background = "#fff",
+    fontSize,
+    fontFamily,
+    fontWeight,
+    lineHeight,
+  }) => {
+    const colorsDark: Record<Color, string> = {
+      body: theme.appTheme.component.fontPrimaryColor,
+      accent: theme.appTheme.component.fontAccentColor,
+      heading: theme.appTheme.component.fontPrimaryAccentColor,
+      secondary: theme.appTheme.component.fontSecondaryColor,
     };
 
-    const getColor = () => {
-      if (props.isAccent) {
-        return colors.accent;
-      }
-
-      if (props.variant === "body1" || props.variant === "body2") {
-        return colors.body;
-      }
-
-      if (props.variant === "caption") {
-        return colors.secondary;
-      }
-
-      return colors.heading;
+    const colorsLight: Record<Color, string> = {
+      body: theme.appTheme.component.fontPrimaryColorLight,
+      accent: theme.appTheme.component.fontAccentColorLight,
+      heading: theme.appTheme.component.fontPrimaryAccentColorLight,
+      secondary: theme.appTheme.component.fontSecondaryColorLight,
     };
 
-    if (
-      props.variant === "h1" ||
-      props.variant === "h2" ||
-      props.variant === "h3" ||
-      props.variant === "h4" ||
-      props.variant === "h5" ||
-      props.variant === "h6" ||
-      props.variant === "body1" ||
-      props.variant === "body2" ||
-      props.variant === "subtitle1" ||
-      props.variant === "subtitle2" ||
-      props.variant === "caption"
-    )
-      return {
-        fontSize:
-          props.fontSize ??
-          props.theme.appTheme.typography.heading[props.variant].fontSize,
-        fontFamily:
-          props.fontFamily ??
-          props.theme.appTheme.typography.heading[props.variant].fontFamily,
-        fontWeight:
-          props.fontWeight ??
-          props.theme.appTheme.typography.heading[props.variant].fontWeight,
-        lineHeight:
-          props.lineHeight ??
-          props.theme.appTheme.typography.heading[props.variant].lineHeight,
-        color: getColor(),
-      };
+    const contrastColor = getContrastColor(background);
+    const colorVariant = contrastColor === "light" ? colorsLight : colorsDark;
+
+    return {
+      fontSize: fontSize
+        ? fontSize
+        : theme.appTheme.typography.heading[variant].fontSize,
+      fontFamily: fontFamily
+        ? fontFamily
+        : theme.appTheme.typography.heading[variant].fontFamily,
+      fontWeight: fontWeight
+        ? fontWeight
+        : theme.appTheme.typography.heading[variant].fontWeight,
+      lineHeight: lineHeight
+        ? fontWeight
+        : theme.appTheme.typography.heading[variant].lineHeight,
+      color: colorVariant[color],
+    };
   }}
 `;
 
-export const Typography: React.FC<Props> = (props) => {
+export const Typography: React.FC<PropsNew> = (props) => {
   return <TypographyStyled {...props} />;
 };

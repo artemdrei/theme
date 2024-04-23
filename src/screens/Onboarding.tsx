@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, styled } from "@mui/material";
+import { Box, styled, useTheme } from "@mui/material";
 
 import imageSrc from "../assets/images/email.png";
 import { ButtonAccent, ButtonSecondary } from "../ui/Button";
@@ -36,6 +36,9 @@ const ButtonSecondaryStyled = styled(ButtonSecondary)`
 `;
 
 export const OnboardingScreen: React.FC<Props> = () => {
+  const theme = useTheme();
+  const backgroundColor = theme.appTheme.app.gradients.secondary;
+
   return (
     <SRoot>
       <Container>
@@ -43,10 +46,14 @@ export const OnboardingScreen: React.FC<Props> = () => {
 
         <ImageStyled src={imageSrc} alt="image" />
 
-        <TitleStyled variant="h5" align="center">
+        <TitleStyled
+          color="heading"
+          align="center"
+          background={backgroundColor}
+        >
           Great! You just set your first goal!
         </TitleStyled>
-        <Typography isAccent variant="body1" align="center">
+        <Typography color="body" background={backgroundColor} align="center">
           Let's keep going so we can get to know you better.
         </Typography>
         <Box

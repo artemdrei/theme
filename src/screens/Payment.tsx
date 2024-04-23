@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "@mui/material";
+import { styled, useTheme } from "@mui/material";
 
 import { ButtonSuccess } from "../ui/Button";
 import { Typography } from "../ui/Typography";
@@ -38,27 +38,62 @@ const PaymentBoxStyled = styled("div")`
 `;
 
 export const PaymentScreen: React.FC<Props> = () => {
+  const theme = useTheme();
+  const backgroundColor = theme.appTheme.app.background.primary;
+
   return (
     <SRoot>
       <Container>
-        <Typography variant="h5" textAlign="center">
+        <Typography
+          variant="h5"
+          color="heading"
+          textAlign="center"
+          background={backgroundColor}
+        >
           🎉️️️️️️
         </Typography>
-        <Typography variant="h5" textAlign="center">
+        <Typography
+          variant="h5"
+          color="heading"
+          textAlign="center"
+          background={backgroundColor}
+        >
           ️️️️️ You get a secret discount!
         </Typography>
 
-        <Typography variant="h6" fontWeight={400} textAlign="center">
+        <Typography
+          variant="h6"
+          color="heading"
+          fontWeight={400}
+          textAlign="center"
+          background={backgroundColor}
+        >
           Start your 7-day trial
         </Typography>
-        <Typography variant="subtitle2" fontWeight={400} textAlign="center">
+        <Typography
+          variant="subtitle2"
+          color="heading"
+          fontWeight={400}
+          textAlign="center"
+          background={backgroundColor}
+        >
           No pressure. Cancel anytime.
         </Typography>
 
         <PaymentBoxStyled>
-          <Typography>🎉️️️️️️</Typography>
-          <Typography>Secret discount applied!</Typography>
-          <Typography fontWeight={700}>-65%</Typography>
+          <Typography color="heading" background={backgroundColor}>
+            🎉️️️️️️
+          </Typography>
+          <Typography color="heading" background={backgroundColor}>
+            Secret discount applied!
+          </Typography>
+          <Typography
+            color="body"
+            fontWeight={700}
+            background={backgroundColor}
+          >
+            -65%
+          </Typography>
         </PaymentBoxStyled>
 
         <DividerStyled />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, styled } from "@mui/material";
+import { Box, styled, useTheme } from "@mui/material";
 
 import imageSrc from "../assets/images/confirm_email.png";
 import { ButtonAccent } from "../ui/Button";
@@ -42,6 +42,9 @@ const InputStyled = styled(Input)`
 `;
 
 export const EmailScreen: React.FC<Props> = () => {
+  const theme = useTheme();
+  const backgroundColor = theme.appTheme.app.background.primary;
+
   const [value, changeValue] = useState("");
 
   return (
@@ -50,11 +53,17 @@ export const EmailScreen: React.FC<Props> = () => {
         <ProgressBar value={10} sx={{ marginBottom: "20px" }} />
         <ImageStyled src={imageSrc} alt="image" />
 
-        <TitleStyled variant="h5" align="center">
+        <TitleStyled
+          align="center"
+          color="heading"
+          variant="h5"
+          background={backgroundColor}
+        >
           Ready for insights into your love, life, and emotions?
         </TitleStyled>
-        <Typography variant="body1" align="center">
-          <b>Share your email</b> so you don't lose all your information
+        <Typography color="body" align="center" background={backgroundColor}>
+          <Typography>Share your email</Typography> so you don't lose all your
+          information
         </Typography>
         <Box
           display="flex"
@@ -69,7 +78,12 @@ export const EmailScreen: React.FC<Props> = () => {
             value={value}
             onChange={(e) => changeValue(e.target.value)}
           />
-          <Typography variant="caption" textAlign="center">
+          <Typography
+            color="secondary"
+            variant="caption"
+            textAlign="center"
+            background={backgroundColor}
+          >
             *Nebula does not share any personal information. We'll email you a
             copy of your program for convenient access.
           </Typography>
