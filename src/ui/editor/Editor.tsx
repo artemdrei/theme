@@ -5,6 +5,7 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import { EditorProvider, useCurrentEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import { Typography } from "../components/Typography";
 
 interface Props {
   title: string;
@@ -171,13 +172,16 @@ export const Editor: React.FC<PropsWithChildren<Props>> = ({
   setTitle,
 }) => {
   return (
-    <EditorProvider
-      slotBefore={<MenuBar />}
-      extensions={extensions}
-      content={title}
-      onUpdate={(value) => setTitle(value.editor.getHTML())}
-    >
-      {children}
-    </EditorProvider>
+    <>
+      <Typography variant="subtitle1">Edit first title</Typography>
+      <EditorProvider
+        content={title}
+        extensions={extensions}
+        slotBefore={<MenuBar />}
+        onUpdate={(value) => setTitle(value.editor.getHTML())}
+      >
+        {children}
+      </EditorProvider>
+    </>
   );
 };

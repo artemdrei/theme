@@ -1,10 +1,16 @@
-import { fontWeight } from "@mui/system";
-
-export const appTheme = {
+export const defaultTheme = {
   palette: {
-    error: "#F04D4D",
-    accent: "#F94E6A",
-    //...
+    // https://mui.com/material-ui/customization/palette/#color-tokens
+    primary: {
+      main: "#1976d2",
+      light: "#42a5f5",
+      dark: "#1565c0",
+    },
+    secondary: {},
+    error: {},
+    warning: {},
+    info: {},
+    success: {},
   },
   app: {
     background: {
@@ -14,14 +20,8 @@ export const appTheme = {
     },
     gradients: {
       primary: "linear-gradient(0deg, #400078 9.74%, #732BFF 87.02%)",
-      primaryHover:
-        "linear-gradient(167.62deg, #141333 -32.12%, #3639A2 4.19%, #6D4BCD 49.79%, #9D5BE9 81.72%);",
       secondary:
         "linear-gradient(180deg, #141333 0%, #202261 70.63%, #3a237a 100%)",
-      secondaryLight:
-        "linear-gradient(90.6deg, #6A4DBC 0.47%, #F2994A 137.94%)",
-      background: "linear-gradient(89.69deg, #975bdd -30.16%, #fc9f33 153.85%)",
-      geminiGradient: "linear-gradient(96deg, #642b73 0%, #c6426e 100%)",
       tertiary:
         "linear-gradient(95.17deg, #CF8BF3 -16.49%, #A770EF -15.14%, #FDB99B 115.23%)",
     },
@@ -49,6 +49,7 @@ export const appTheme = {
     buttonSecondaryTextColor: "#6A3AA2",
     buttonSecondaryTextColorDisabled: "#FBFBFF",
     buttonSecondaryBoxShadow: "",
+    // buttonBorderColor: if needed for next buttons
 
     buttonSuccessBackground: "#27AE60",
     buttonSuccessBackgroundHover: "#69B13F",
@@ -159,6 +160,7 @@ export const appTheme = {
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
   },
+  breakpoints: {
+    // not used for this POC
+  },
 };
-
-export type AppTheme = { appTheme: typeof appTheme };
