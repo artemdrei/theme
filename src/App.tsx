@@ -8,8 +8,10 @@ import { defaultTheme } from "./assets/theme/defaultTheme";
 import styled from "@emotion/styled";
 import { Funnel } from "./ui/flow/Funnel";
 import { useState } from "react";
-import { Editor } from "./ui/editor/Editor";
-import { ThemeSwitcher } from "./ui/themeSwitcher/ThemeSwitcher";
+import { Editor } from "./ui/customization/editor/Editor";
+import { ThemeSwitcher } from "./ui/customization/themeSwitcher/ThemeSwitcher";
+import { mapThemeWithPalette } from "./utils/mapThemeWithColors";
+import { ColorPicker } from "./ui/customization/colorPicker/ColorPicker";
 
 const LayoutStyled = styled("div")`
   display: flex;
@@ -27,7 +29,8 @@ const RightStyled = styled("div")`
 `;
 
 export const App = () => {
-  const [theme, setTheme] = useState(defaultTheme);
+  const mappedTheme = mapThemeWithPalette(defaultTheme);
+  const [theme, setTheme] = useState(mappedTheme);
   const [title, setTitle] = useState(
     "Ready for insights into your love, life, and emotions?"
   );
@@ -37,13 +40,14 @@ export const App = () => {
   const appTheme = createTheme({ appTheme: theme });
 
   return (
-    <ThemeProvider theme={appTheme}>
+    <ThemeProvider key={theme.palette.primaryMain} theme={appTheme}>
       <Container component="main" sx={{ flexDirection: "column" }}>
         <CssBaseline />
 
         <LayoutStyled>
           <LeftStyled>
             <ThemeSwitcher setTheme={setTheme} />
+            <ColorPicker theme={theme} setTheme={setTheme} />
             <Editor title={title} setTitle={setTitle} />
           </LeftStyled>
 

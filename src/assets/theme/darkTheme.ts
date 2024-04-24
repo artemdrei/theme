@@ -1,16 +1,14 @@
 export const darkTheme = {
   palette: {
     // https://mui.com/material-ui/customization/palette/#color-tokens
-    primary: {
-      main: "#9c27b0",
-      light: "#ba68c8",
-      dark: "#7b1fa2",
-    },
-    secondary: {},
-    error: {},
-    warning: {},
-    info: {},
-    success: {},
+    primaryMain: "#9c27b0",
+    primaryLight: "#ba68c8",
+    primaryDark: "#7b1fa2",
+    // secondary...:
+    // error...:
+    // warning...:
+    // info...,
+    // success...
   },
   app: {
     background: {
@@ -31,11 +29,9 @@ export const darkTheme = {
     buttonFontSize: "20px",
     buttonFontWeight: 700,
 
-    buttonPrimaryBackground: "linear-gradient(to bottom, #3498db, #2980b9)",
-    buttonPrimaryBackgroundHover:
-      "linear-gradient(to bottom, #3cb0fd, #3498db)",
-    buttonPrimaryBackgroundActive:
-      "linear-gradient(to bottom, #3498db, #2980b9)",
+    buttonPrimaryBackground: "primaryMain",
+    buttonPrimaryBackgroundHover: "primaryLight",
+    buttonPrimaryBackgroundActive: "primaryDark",
     buttonPrimaryBackgroundDisabled: "#E0E0E0",
     buttonPrimaryTextColor: "#FBFBFF",
     buttonPrimaryTextColorDisabled: "#FBFBFF",

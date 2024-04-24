@@ -1,16 +1,16 @@
+// @ts-ignore
+
 export const defaultTheme = {
   palette: {
     // https://mui.com/material-ui/customization/palette/#color-tokens
-    primary: {
-      main: "#1976d2",
-      light: "#42a5f5",
-      dark: "#1565c0",
-    },
-    secondary: {},
-    error: {},
-    warning: {},
-    info: {},
-    success: {},
+    primaryMain: "#1976d2",
+    primaryLight: "#42a5f5",
+    primaryDark: "#1565c0",
+    // secondary...:
+    // error...:
+    // warning...:
+    // info...,
+    // success...
   },
   app: {
     background: {
@@ -31,8 +31,7 @@ export const defaultTheme = {
     buttonFontSize: "16px",
     buttonFontWeight: 400,
 
-    buttonPrimaryBackground:
-      "linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%)",
+    buttonPrimaryBackground: "primaryMain",
     buttonPrimaryBackgroundHover:
       "linear-gradient(165.54deg, #141333 -33.39%,  #6939A2 20%)",
     buttonPrimaryBackgroundActive:
@@ -85,12 +84,12 @@ export const defaultTheme = {
     dividerBackground: "#777",
 
     // Highlights
-    highlightBackground: "neutral600",
+    highlightBackground: "primaryMain",
 
     // Progress Bar
-    progressBarBackground: "neutral600",
-    progressCircleColor: "accent",
-    progressCircleBackground: "neutral600",
+    progressBarBackground: "primaryLight",
+    progressCircleColor: "primaryMain",
+    progressCircleBackground: "accent",
   },
   typography: {
     h1: {
