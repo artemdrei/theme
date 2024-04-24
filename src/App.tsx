@@ -4,7 +4,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
 import { appTheme } from "./assets/theme/theme";
-import { content as defaultContent, Content } from "./assets/content";
 
 import styled from "@emotion/styled";
 import { Funnel } from "./ui/flow/Funnel";
@@ -29,7 +28,9 @@ const RightStyled = styled("div")`
 `;
 
 export const App = () => {
-  const [content, setContent] = useState<Content>(defaultContent);
+  const [title, setTitle] = useState(
+    "Ready for insights into your love, life, and emotions?"
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -38,11 +39,11 @@ export const App = () => {
 
         <LayoutStyled>
           <LeftStyled>
-            <Editor content={content} setContent={setContent} />
+            <Editor title={title} setTitle={setTitle} />
           </LeftStyled>
 
           <RightStyled>
-            <Funnel content={content} />
+            <Funnel title={title} />
           </RightStyled>
         </LayoutStyled>
       </Container>

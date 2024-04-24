@@ -6,11 +6,6 @@ import { ButtonAccent } from "../components/Button";
 import { Typography } from "../components/Typography";
 import { Input } from "../components/Input";
 import { ProgressBar } from "../components/ProgressBar";
-import { Content } from "../../assets/content";
-
-interface Props {
-  content: Content;
-}
 
 const SRoot = styled("div")`
   width: 100%;
@@ -43,7 +38,11 @@ const InputStyled = styled(Input)`
   margin-bottom: 12px;
 `;
 
-export const EmailScreen: React.FC<Props> = ({ content }) => {
+interface Props {
+  title: string;
+}
+
+export const EmailScreen: React.FC<Props> = ({ title }) => {
   const theme = useTheme();
   const backgroundColor = theme.appTheme.app.background.primary;
 
@@ -61,10 +60,14 @@ export const EmailScreen: React.FC<Props> = ({ content }) => {
           variant="h5"
           background={backgroundColor}
         >
-          {content.title}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          />
         </TitleStyled>
         <Typography color="body" align="center" background={backgroundColor}>
-          {content.subTitle}
+          Share your email so you don't lose all your information
         </Typography>
         <Box
           display="flex"
@@ -85,7 +88,8 @@ export const EmailScreen: React.FC<Props> = ({ content }) => {
             textAlign="center"
             background={backgroundColor}
           >
-            {content.note}
+            *Nebula does not share any personal information. We'll email you a
+            copy of your program for convenient access.
           </Typography>
         </Box>
 

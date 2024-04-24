@@ -3,16 +3,15 @@ import React from "react";
 import { EmailScreen } from "../screens/Email";
 import { OnboardingScreen } from "../screens/Onboarding";
 import { PaymentScreen } from "../screens/Payment";
-import { Content } from "../../assets/content";
 
 interface Props {
-  content: Content;
+  title: string;
 }
 
-export const Funnel: React.FC<Props> = ({ content }) => {
+export const Funnel: React.FC<Props> = ({ title }) => {
   return (
     <>
-      <EmailScreen content={content} />
+      <EmailScreen title={title} />
       <OnboardingScreen />
       <PaymentScreen />
     </>

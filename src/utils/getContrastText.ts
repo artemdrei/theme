@@ -14,8 +14,6 @@ export const getContrastColor = function (hexColor: string) {
       .join("");
   }
 
-  console.log(1, hexColor);
-
   // Convert to RGB value
   var r = parseInt(hexColor[0] + hexColor[1], 16);
   var g = parseInt(hexColor[2] + hexColor[3], 16);
