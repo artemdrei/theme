@@ -10,7 +10,18 @@ interface Props {}
 
 const SRoot = styled("div")`
   width: 100%;
-  background: ${({ theme }) => theme.appTheme.app.gradients.secondary};
+
+  ${({ theme }) => {
+    if (theme.appTheme.app.background.backgroundImage) {
+      return {
+        background: `center / cover no-repeat url(${theme.appTheme.app.background.backgroundImage})`,
+      };
+    }
+
+    return {
+      background: theme.appTheme.app.gradients.secondary,
+    };
+  }}
 `;
 
 const ImageStyled = styled("img")`

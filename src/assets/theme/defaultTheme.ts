@@ -17,6 +17,8 @@ export const defaultTheme = {
       primary: "#fff",
       secondary: "#f1f1f1",
       colored: "#141333",
+      backgroundImage:
+        "https://appnebula.co/_next/image?url=https%3A%2F%2Fmedia.asknebula.com%2Fappnebula-images%2Fbackgrounds%2Fmobile%2Fmoon_phases.jpg&w=1920&q=100",
     },
     gradients: {
       primary: "linear-gradient(0deg, #400078 9.74%, #732BFF 87.02%)",
