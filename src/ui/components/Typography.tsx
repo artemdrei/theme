@@ -20,37 +20,37 @@ type Variant =
   | "subtitle2";
 
 // future colors: accent | error | warring and so on. But be careful - don't extend color for each cases (replace specific color on the place)
-type Color = "body" | "accent" | "heading" | "secondary";
+type ColorVariant = "body" | "accent" | "heading" | "secondary";
 
-interface PropsNew extends TypographyProps {
-  color?: Color;
+interface Props extends TypographyProps {
   variant?: Variant;
   fontSize?: string;
   fontFamily?: string;
   fontWeight?: number;
   lineHeight?: string;
   background?: string;
+  colorVariant?: ColorVariant;
 }
 
-const TypographyStyled = styled(MuiTypography)<PropsNew>`
+const TypographyStyled = styled(MuiTypography)<Props>`
   ${({
     theme,
-    color = "body",
     variant = "body1",
     background = "#fff",
     fontSize,
     fontFamily,
     fontWeight,
     lineHeight,
+    colorVariant = "body",
   }) => {
-    const colorsDark: Record<Color, string> = {
+    const colorsDark: Record<ColorVariant, string> = {
       body: theme.appTheme.components.fontPrimaryColor,
       accent: theme.appTheme.components.fontAccentColor,
       heading: theme.appTheme.components.fontPrimaryAccentColor,
       secondary: theme.appTheme.components.fontSecondaryColor,
     };
 
-    const colorsLight: Record<Color, string> = {
+    const colorsLight: Record<ColorVariant, string> = {
       body: theme.appTheme.components.fontPrimaryColorLight,
       accent: theme.appTheme.components.fontAccentColorLight,
       heading: theme.appTheme.components.fontPrimaryAccentColorLight,
@@ -58,7 +58,8 @@ const TypographyStyled = styled(MuiTypography)<PropsNew>`
     };
 
     const contrastColor = getContrastColor(background);
-    const colorVariant = contrastColor === "light" ? colorsLight : colorsDark;
+    const colorByContrast =
+      contrastColor === "light" ? colorsLight : colorsDark;
 
     return {
       fontSize: fontSize
@@ -73,11 +74,11 @@ const TypographyStyled = styled(MuiTypography)<PropsNew>`
       lineHeight: lineHeight
         ? fontWeight
         : theme.appTheme.typography[variant].lineHeight,
-      color: colorVariant[color],
+      color: colorByContrast[colorVariant],
     };
   }}
 `;
 
-export const Typography: React.FC<PropsNew> = (props) => {
+export const Typography: React.FC<Props> = (props) => {
   return <TypographyStyled {...props} />;
 };

@@ -7,7 +7,7 @@ import { Typography } from "../components/Typography";
 import { Input } from "../components/Input";
 import { ProgressBar } from "../components/ProgressBar";
 
-const SRoot = styled("div")`
+const SRoot = styled("span")`
   width: 100%;
   background: ${({ theme }) => theme.appTheme.app.background.primary};
 `;
@@ -19,10 +19,12 @@ const ImageStyled = styled("img")`
   margin: 0 auto;
 `;
 
-const Container = styled("div")`
+const Container = styled("div")<{ url: string }>`
   height: 100%;
   margin: 0 auto;
   padding: 32px;
+  background-image: ${({ url }) => `url(${url})`};
+  background-size: cover;a
 `;
 
 const TitleStyled = styled(Typography)`
@@ -44,21 +46,21 @@ interface Props {
 
 export const EmailScreen: React.FC<Props> = ({ title }) => {
   const theme = useTheme();
-  const backgroundColor = theme.appTheme.app.background.primary;
+  const backgroundImage = theme.appTheme.app.background.backgroundImage;
 
   const [value, changeValue] = useState("");
 
   return (
     <SRoot>
-      <Container>
+      <Container url={backgroundImage.url}>
         <ProgressBar value={10} sx={{ marginBottom: "20px" }} />
         <ImageStyled src={imageSrc} alt="image" />
 
         <TitleStyled
           align="center"
-          color="heading"
           variant="h5"
-          background={backgroundColor}
+          colorVariant="heading"
+          background={backgroundImage.color}
         >
           <span
             dangerouslySetInnerHTML={{
@@ -66,7 +68,11 @@ export const EmailScreen: React.FC<Props> = ({ title }) => {
             }}
           />
         </TitleStyled>
-        <Typography color="body" align="center" background={backgroundColor}>
+        <Typography
+          align="center"
+          background={backgroundImage.color}
+          colorVariant="body"
+        >
           Share your email so you don't lose all your information
         </Typography>
         <Box
@@ -83,10 +89,10 @@ export const EmailScreen: React.FC<Props> = ({ title }) => {
             onChange={(e) => changeValue(e.target.value)}
           />
           <Typography
-            color="secondary"
             variant="caption"
             textAlign="center"
-            background={backgroundColor}
+            background={backgroundImage.color}
+            colorVariant="secondary"
           >
             *Nebula does not share any personal information. We'll email you a
             copy of your program for convenient access.

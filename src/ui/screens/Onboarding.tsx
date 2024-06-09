@@ -47,23 +47,27 @@ const ButtonSecondaryStyled = styled(ButtonSecondary)`
 
 export const OnboardingScreen: React.FC<Props> = () => {
   const theme = useTheme();
-  const backgroundColor = theme.appTheme.app.gradients.secondary;
+  const backgroundColor = theme.appTheme.app.gradients.primary;
 
   return (
     <SRoot>
-      <Container>
+      <Container sx={{ background: backgroundColor }}>
         <ProgressBar value={20} sx={{ marginBottom: "20px" }} />
 
         <ImageStyled src={imageSrc} alt="image" />
 
         <TitleStyled
-          color="heading"
           align="center"
           background={backgroundColor}
+          colorVariant="heading"
         >
           Great! You just set your first goal!
         </TitleStyled>
-        <Typography color="body" background={backgroundColor} align="center">
+        <Typography
+          colorVariant="body"
+          background={backgroundColor}
+          align="center"
+        >
           Let's keep going so we can get to know you better.
         </Typography>
         <Box

@@ -1,11 +1,9 @@
 import { AppTheme } from "../assets/theme/styled";
 
-// NOTE
-// This is a chat GPT solution, make own or improve typings
 export const mapThemeWithPalette = (theme: AppTheme["appTheme"]) => {
   const { palette, components } = theme;
 
-  const filledTheme: AppTheme["appTheme"] = { ...theme }; // Create a shallow copy of the theme
+  const filledTheme: AppTheme["appTheme"] = { ...theme };
 
   // Iterate over each component in the theme object
   Object.entries(components).forEach(([key, value]) => {

@@ -1,4 +1,7 @@
+// https://bareynol.github.io/mui-theme-creator/
+
 export const darkTheme = {
+  name: "DARK_THEME",
   palette: {
     // https://mui.com/material-ui/customization/palette/#color-tokens
     primaryMain: "#9c27b0",
@@ -12,11 +15,13 @@ export const darkTheme = {
   },
   app: {
     background: {
-      primary: "rgb(33, 33, 33)",
+      primary: "#292929",
       secondary: "#f1f1f1",
       colored: "#141333",
-      backgroundImage:
-        "https://appnebula.co/_next/image?url=https%3A%2F%2Fmedia.asknebula.com%2Fappnebula-images%2Fbackgrounds%2Fmobile%2Fmoon_phases.jpg&w=1920&q=100",
+      backgroundImage: {
+        color: "#000",
+        url: "https://images.unsplash.com/photo-1717704067715-57d14b090290?q=80&w=3143&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
     },
     gradients: {
       primary: "linear-gradient(0deg, #400078 9.74%, #732BFF 87.02%)",
@@ -28,7 +33,7 @@ export const darkTheme = {
   },
   components: {
     // Buttons
-    buttonFontSize: "20px",
+    buttonFontSize: "16px",
     buttonFontWeight: 700,
 
     buttonPrimaryBackground: "primaryMain",
@@ -109,43 +114,43 @@ export const darkTheme = {
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
     h4: {
-      fontSize: "36px",
+      fontSize: "30px",
       fontWeight: 700,
       lineHeight: 1.67,
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
     h5: {
-      fontSize: "26px",
-      fontWeight: 700,
-      lineHeight: 1.67,
-      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    },
-    h6: {
-      fontSize: "24px",
-      fontWeight: 700,
-      lineHeight: 1.67,
-      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    },
-    subtitle1: {
-      fontSize: "22px",
-      fontWeight: 700,
-      lineHeight: 1.67,
-      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    },
-    subtitle2: {
       fontSize: "20px",
       fontWeight: 700,
       lineHeight: 1.67,
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
-    body1: {
+    h6: {
+      fontSize: "20px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    subtitle1: {
       fontSize: "18px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    subtitle2: {
+      fontSize: "16px",
+      fontWeight: 700,
+      lineHeight: 1.67,
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    },
+    body1: {
+      fontSize: "16px",
       fontWeight: 400,
       lineHeight: 1.67,
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     },
     body2: {
-      fontSize: "16px",
+      fontSize: "14px",
       fontWeight: 400,
       lineHeight: 1.67,
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,

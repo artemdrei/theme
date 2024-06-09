@@ -45,49 +45,49 @@ export const PaymentScreen: React.FC<Props> = () => {
       <Container>
         <Typography
           variant="h5"
-          color="heading"
           textAlign="center"
           background={backgroundColor}
+          colorVariant="heading"
         >
           🎉️️️️️️
         </Typography>
         <Typography
           variant="h5"
-          color="heading"
           textAlign="center"
           background={backgroundColor}
+          colorVariant="heading"
         >
           ️️️️️ You get a secret discount!
         </Typography>
 
         <Typography
           variant="h6"
-          color="heading"
           fontWeight={400}
           textAlign="center"
           background={backgroundColor}
+          colorVariant="heading"
         >
           Start your 7-day trial
         </Typography>
         <Typography
           variant="subtitle2"
-          color="heading"
           fontWeight={400}
           textAlign="center"
           background={backgroundColor}
+          colorVariant="heading"
         >
           No pressure. Cancel anytime.
         </Typography>
 
         <PaymentBoxStyled>
-          <Typography color="heading" background={backgroundColor}>
+          <Typography colorVariant="heading" background={backgroundColor}>
             🎉️️️️️️
           </Typography>
-          <Typography color="heading" background={backgroundColor}>
+          <Typography colorVariant="heading" background={backgroundColor}>
             Secret discount applied!
           </Typography>
           <Typography
-            color="body"
+            colorVariant="body"
             fontWeight={700}
             background={backgroundColor}
           >

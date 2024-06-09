@@ -1,6 +1,7 @@
-// @ts-ignore
+// https://bareynol.github.io/mui-theme-creator/
 
-export const defaultTheme = {
+export const lightTheme = {
+  name: "LIGHT_THEME",
   palette: {
     // https://mui.com/material-ui/customization/palette/#color-tokens
     primaryMain: "#1976d2",
@@ -17,11 +18,13 @@ export const defaultTheme = {
       primary: "#fff",
       secondary: "#f1f1f1",
       colored: "#141333",
-      backgroundImage:
-        "https://appnebula.co/_next/image?url=https%3A%2F%2Fmedia.asknebula.com%2Fappnebula-images%2Fbackgrounds%2Fmobile%2Fmoon_phases.jpg&w=1920&q=100",
+      backgroundImage: {
+        color: "#fff",
+        url: "https://images.unsplash.com/photo-1716962659147-716dd7ead31f?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
     },
     gradients: {
-      primary: "linear-gradient(0deg, #400078 9.74%, #732BFF 87.02%)",
+      primary: "linear-gradient(0deg, #ededed 9.74%, #d6c3fa 87.02%)",
       secondary:
         "linear-gradient(180deg, #141333 0%, #202261 70.63%, #3a237a 100%)",
       tertiary:
@@ -50,7 +53,6 @@ export const defaultTheme = {
     buttonSecondaryTextColor: "#6A3AA2",
     buttonSecondaryTextColorDisabled: "#FBFBFF",
     buttonSecondaryBoxShadow: "",
-    // buttonBorderColor: if needed for next buttons
 
     buttonSuccessBackground: "#27AE60",
     buttonSuccessBackgroundHover: "#69B13F",

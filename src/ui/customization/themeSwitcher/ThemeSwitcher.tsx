@@ -1,45 +1,43 @@
-import React, { useState } from "react";
-import { Box, Button, Switch } from "@mui/material";
+import React from "react";
+import { Box, Switch } from "@mui/material";
 
-import { defaultTheme } from "../../../assets/theme/defaultTheme";
+import { lightTheme } from "../../../assets/theme/lightTheme";
 import { darkTheme } from "../../../assets/theme/darkTheme";
 import { Typography } from "../../components/Typography";
 import { mapThemeWithPalette } from "../../../utils/mapThemeWithColors";
 
 interface Props {
+  themeName: string;
   setTheme: (theme: any) => void;
 }
 
-export const ThemeSwitcher: React.FC<Props> = ({ setTheme }) => {
-  const [dark, setDark] = useState(false);
+export const ThemeSwitcher: React.FC<Props> = ({ themeName, setTheme }) => {
+  const handleSwitchTheme = () => {
+    if (themeName === "LIGHT_THEME") {
+      const mappedTheme = mapThemeWithPalette(darkTheme);
+      setTheme(mappedTheme);
+
+      return;
+    }
+
+    if (themeName === "DARK_THEME") {
+      const mappedTheme = mapThemeWithPalette(lightTheme);
+      setTheme(mappedTheme);
+
+      return;
+    }
+  };
 
   return (
     <Box sx={{ marginBottom: "20px" }}>
       <Typography variant="subtitle1">Theme switcher</Typography>
 
-      <Button
-        variant="contained"
-        onClick={() => {
-          console.log("dark", dark);
-
-          setDark((prev) => {
-            if (!prev) {
-              const mappedTheme = mapThemeWithPalette(darkTheme);
-              setTheme(mappedTheme);
-              setDark(true);
-
-              return true;
-            }
-
-            const mappedTheme = mapThemeWithPalette(defaultTheme);
-            setTheme(mappedTheme);
-
-            return false;
-          });
-        }}
-      >
-        Change Theme
-      </Button>
+      <span>Light</span>
+      <Switch
+        checked={themeName === "DARK_THEME"}
+        onChange={handleSwitchTheme}
+      />
+      <span>Dark</span>
     </Box>
   );
 };
